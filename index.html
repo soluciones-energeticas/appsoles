@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SOLES</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/9317f5fc3c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="vh-100 d-md-flex align-items-center justify-content-center">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md bg-body-tertiary sticky-top d-none">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img
+            src="./sources/logo_soles.png"
+            alt="Logo"
+            width="40"
+            class="d-inline-block align-text-top"
+          />
+        </a>
+        <button
+          class="navbar-toggler me-auto"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse align-items-center"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Reportes
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#">Colaboradores</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Brigadas</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="d-flex align-items-center" href="#">
+          <i class="fa-regular fa-user"></i>
+          <p id="user_name" class="m-auto ms-2"></p>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar -->
+
+    <!-- Background image -->
+    <div id="banner" class="text-center bg-image mb-1 d-none">
+      <div class="w-100 h-100 d-flex flex-column-reverse" style="background-color: rgba(0, 0, 0, 0.6);">
+        <h1 class="text-light m-auto">Grupo Soluciones Energéticas SOLES</h1>
+      </div>
+    </div>
+    <!-- Background image -->
+
+    <!-- login -->
+    <div
+      id="login-div"
+      class="d-none container-md shadow-lg rounded-2 overflow-hidden p-0"
+    >
+      <div class="row">
+        <form
+          id="login-form"
+          action=""
+          class="p-4 d-flex flex-column justify-content-center col-md-6 container bg-primary-subtle"
+        >
+          <h2>¡Bienvenido!</h2>
+          <p class="mb-4">Inicia sesión para acceder al sistema</p>
+          <div class="mb-2 row d-flex flex-column">
+            <label for="staticEmail" class="col col-form-label"
+              >Email corporativo</label
+            >
+            <div class="col">
+              <input
+                name="user"
+                type="text"
+                class="form-control"
+                id="staticEmail"
+              />
+            </div>
+          </div>
+          <div class="row mb-4 d-flex flex-column">
+            <label for="inputPassword" class="col col-form-label"
+              >Contraseña</label
+            >
+            <div class="col">
+              <input
+                name="password"
+                type="password"
+                class="form-control"
+                id="inputPassword"
+              />
+            </div>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              Mantener sesión activa
+            </label>
+          </div>
+          <button id="login-btn" type="button" class="my-3 btn btn-primary">
+            Acceder
+          </button>
+          <button
+            id="login-btn-loading"
+            class="d-none my-3 btn btn-primary"
+            type="button"
+            disabled
+          >
+            <span
+              class="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+            ></span>
+            <span class="visually-hidden">Loading...</span>
+          </button>
+        </form>
+        <div
+          class="align-items-center bg-ligth col-6 container-fluid d-none d-md-flex"
+        >
+          <img
+            src="./sources/logo_soles.png"
+            class="m-auto"
+            alt="imagen de login"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- login -->
+
+    <!-- contenido -->
+    <div id="content-div" class="d-none p-2">
+      <main id="main-row" class="row login m-auto">
+        <div id="aside-div" class="border d-nonee rounded-3 col-md-2">
+          <p></p>
+        </div>
+        <!-- Reporte de asistencia de brigadas -->
+
+        <div
+          class="accordion col-md-10 col-lg-9 col-xl-8 col-xxl-7"
+          id="accordionPanelsStayOpenExample"
+        >
+          <div class="accordion-item">
+            <h2 id="asistencia_brigadas_form_accordion_header" class="accordion-header d-none">
+              <button
+                class="accordion-button text-bg-light"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#asistencia_brigadas_form_accordion"
+                aria-expanded="true"
+                aria-controls="asistencia_brigadas_form_accordion"
+              >
+                Formulario
+              </button>
+            </h2>
+            <div
+              id="asistencia_brigadas_form_accordion"
+              class="accordion-collapse collapse show"
+            >
+              <div id="asistencia-brigadas-div" class="col-12 p-4">
+                <div class="row mb-4"><h2>Reporte de brigadas</h2></div>
+                <form
+                  id="asistencia-brigadas-form"
+                  action="#"
+                  class="row col-12"
+                >
+                  <div id="asistencia-brigadas-acciones-btn-div" class="row">
+                    <label
+                      for="asistencia-brigadas-file-input"
+                      id="asistencia-brigadas-upload-btn"
+                      class="col-auto d-flex align-items-stretch mb-3"
+                    >
+                      <i class="fa-solid fa-upload m-auto me-2"></i>
+                      <p class="m-auto text-nowrap">Subir archivo</p>
+                      <p
+                        id="asistencia-brigadas-file-name"
+                        class="d-none text-nowrap ms-2 text-info m-auto"
+                      >
+                        Nombre de archivo
+                      </p>
+                    </label>
+                    <input
+                      id="asistencia-brigadas-file-input"
+                      type="file"
+                      class="d-none"
+                    />
+                  </div>
+                  <div class="mb-3 col-md-6">
+                    <label
+                      for="asistencia_brigadas_date_input"
+                      class="form-label"
+                      >Fecha</label
+                    >
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="asistencia_brigadas_date_input"
+                      name="asistencia_brigadas_date_input"
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label
+                      for="asistencia_brigadas_ficha_input"
+                      class="form-label"
+                      >Ficha</label
+                    >
+                    <input
+                      class="form-control"
+                      list="asistencia_brigadas_listaFichas"
+                      id="asistencia_brigadas_ficha_input"
+                      name="asistencia_brigadas_ficha_input"
+                      placeholder="Escribe una ficha..."
+                    />
+                    <datalist id="asistencia_brigadas_listaFichas">
+                      <option value="San Francisco"></option>
+                      <option value="New York"></option>
+                      <option value="Seattle"></option>
+                      <option value="Los Angeles"></option>
+                      <option value="Chicago"></option>
+                    </datalist>
+                  </div>
+                  <div class="col-12 mb-3">
+                    <label
+                      for="asistencia_brigadas_campamentos_input"
+                      class="form-label"
+                      >Campamento</label
+                    >
+                    <input
+                      class="form-control"
+                      list="asistencia_brigadas_listaCampamentos"
+                      id="asistencia_brigadas_campamentos_input"
+                      name="asistencia_brigadas_campamentos_input"
+                      placeholder="Escribe un campamento..."
+                    />
+                    <datalist id="asistencia_brigadas_listaCampamentos">
+                      <option value="San Francisco"></option>
+                      <option value="New York"></option>
+                      <option value="Seattle"></option>
+                      <option value="Los Angeles"></option>
+                      <option value="Chicago"></option>
+                    </datalist>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label
+                      for="asistencia_brigadas_codigos_actividad_input"
+                      class="form-label"
+                      >Código actividad</label
+                    >
+                    <input
+                      class="form-control"
+                      list="asistencia_brigadas_listaCodigosActividad"
+                      id="asistencia_brigadas_codigos_actividad_input"
+                      name="asistencia_brigadas_codigos_actividad_input"
+                      placeholder="Escribe un código..."
+                    />
+                    <datalist id="asistencia_brigadas_listaCodigosActividad">
+                      <option value="San Francisco"></option>
+                      <option value="New York"></option>
+                      <option value="Seattle"></option>
+                      <option value="Los Angeles"></option>
+                      <option value="Chicago"></option>
+                    </datalist>
+                  </div>
+                  <div class="col-md-8 mb-3">
+                    <label
+                      for="asistencia_brigadas_descripcion_actividad_input"
+                      class="form-label"
+                      >Descripción actividad</label
+                    >
+                    <input
+                      class="form-control"
+                      list="asistencia_brigadas_listaDescripcionActividad"
+                      id="asistencia_brigadas_descripcion_actividad_input"
+                      name="asistencia_brigadas_descripcion_actividad_input"
+                      placeholder="Escribe una descripción..."
+                    />
+                    <datalist
+                      id="asistencia_brigadas_listaDescripcionActividad"
+                    >
+                      <option value="San Francisco"></option>
+                      <option value="New York"></option>
+                      <option value="Seattle"></option>
+                      <option value="Los Angeles"></option>
+                      <option value="Chicago"></option>
+                    </datalist>
+                  </div>
+                  <div class="mb-3 col-md-2">
+                    <label for="asistencia_brigadas_cantidad" class="form-label"
+                      >Cantidad</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="asistencia_brigadas_cantidad"
+                      name="asistencia-brigadas-entrada-input"
+                    />
+                  </div>
+                  <div class="mb-3 col-md-3">
+                    <label
+                      for="asistencia-brigadas-entrada-input"
+                      class="form-label"
+                      >Hora Entrada</label
+                    >
+                    <input
+                      type="time"
+                      class="form-control"
+                      id="asistencia-brigadas-entrada-input"
+                      name="asistencia-brigadas-entrada-input"
+                    />
+                  </div>
+                  <div class="mb-3 col-md-3">
+                    <label
+                      for="asistencia-brigadas-salida-input"
+                      class="form-label"
+                      >Hora Salida</label
+                    >
+                    <input
+                      type="time"
+                      class="form-control"
+                      id="asistencia-brigadas-salida-input"
+                      name="asistencia-brigadas-salida-input"
+                    />
+                  </div>
+                  <div class="row ms-auto ps-0 mt-3">
+                    <button
+                      id="asistencia-brigadas-loading-btn"
+                      class="btn d-none btn-warning col-auto"
+                      type="button"
+                      disabled
+                    >
+                      <span
+                        class="spinner-border spinner-border-sm"
+                        role="status"
+                        aria-hidden="true"
+                      ></span>
+                      <span class="visually-hidden">Loading...</span>
+                    </button>
+                    <button
+                      id="asistencia-brigadas-btn"
+                      type="button"
+                      class="col-auto btn btn-warning"
+                    >
+                      Enviar
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div
+            id="asistencia_brigadas_observaciones_accordion_header"
+            class="d-none accordion-item"
+          >
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button text-bg-danger"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#asistencia_brigadas_observaciones_accordion"
+                aria-expanded="true"
+                aria-controls="asistencia_brigadas_observaciones_accordion"
+              >
+                Observaciones
+              </button>
+            </h2>
+            <div
+              id="asistencia_brigadas_observaciones_accordion"
+              class="accordion-collapse collapse show overflow-scroll"
+            >
+              <table
+                id="asistencia_brigadas_table"
+                class="table table-hover align-middle"
+              >
+                <thead>
+                  <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Campamento</th>
+                    <th scope="col">Ficha</th>
+                    <th scope="col">Hora Entrada</th>
+                    <th scope="col">Hora Salida</th>
+                    <th scope="col">Codigo Actividad</th>
+                    <th scope="col">Descripcion Actividad</th>
+                    <th scope="col">Cantidad Actividad</th>
+                    <th scope="col">Observaciones</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- contenido -->
+
+    <script src="https://unpkg.com/read-excel-file@5.x/bundle/read-excel-file.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="scripts.js" type="module"></script>
+  </body>
+</html>

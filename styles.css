@@ -1,0 +1,36 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar-collapse{
+    flex-grow: 1;
+}
+
+.dropdown:hover>.dropdown-menu, .dropend:hover>.dropdown-menu{
+    display: block;
+}
+
+#asistencia-brigadas-upload-btn{
+    cursor: pointer;
+}
+
+#asistencia_brigadas_observaciones_accordion{
+    max-height: 50vh;
+}
+
+#banner{
+    background-image: url("sources/banner.jpg");
+    background-size: cover;
+    height: 200px;
+    width: 100%;
+    background-position: 0 60%;
+
+}
+
+@media (min-width: 768px){
+    #login-div{
+        max-width: 750px;
+
+    }
+
+}
